@@ -17,6 +17,6 @@ impl Identifier {
     }
 
     pub fn token_literal(&self) -> String {
-        self.token.call().to_string()
+        self.token.call()
     }
 }
