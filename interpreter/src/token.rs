@@ -29,15 +29,19 @@ pub enum Token {
 }
 
 impl Token {
-    pub fn call(&self) {
-
-    }
-
-    pub fn print_value(&self) {
+    pub fn call(&self) -> String {
         match self {
-            Token::INT(num) => println!("{}", num),
-            Token::ILLEGAL(value) => println!("{}", value),
-            _ => println!("other data type"),
+            Token::INT(num) => num.clone(),
+            Token::ILLEGAL(value) => value.to_string(),
+            Token::RETURN => String::from("return"),
+            Token::LT => String::from("<"),
+            Token::GT => String::from(">"),
+            Token::ASSIGN => String::from("="),
+            Token::FUNCTION => String::from("fn"),
+            Token::LET => String::from("let"),
+            Token::IDENT(value) => value.clone(),
+            Token::SEMICOLON => String::from(";"),
+            _ => String::from(""),
         }
     }
 }

@@ -9,8 +9,8 @@ pub fn repl_start() {
         let mut lexer = Lexer::new(input);
         let mut token = lexer.next_token();
         while !matches!(token, Token::EOF) {
-           token.print_value(); 
-           token = lexer.next_token();
+            println!("{}", token.call());
+            token = lexer.next_token();
         }
     }
 }
