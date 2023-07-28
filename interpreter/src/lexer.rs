@@ -50,8 +50,10 @@ impl Lexer {
             _ => {
                 if self.current_char.is_alphabetic() {
                     token = convert_to_token(self.read_identifier().as_str());
+                    return token;
                 } else if self.current_char.is_digit(10) {
                     token = Token::INT(self.read_number());
+                    return token;
                 } else {
                     token = Token::ILLEGAL(self.current_char);
                 }
